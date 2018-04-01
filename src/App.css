@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+input{
+  height: 40px;
+  width: 300px;
+  border-radius: 20px 0 0 20px;
+}
+button{
+  height: 40px;
+}
+.searchArrayTitle{
+  font-size: 16px;
+}
+.searchArrayRelease{
+  font-size: 16px;
+}
