@@ -25,8 +25,8 @@ module.exports={
     // },
     updateNote: (req,res) =>{
         const {id, note} = req.body;
-        // const updateId = req.params.id
-        const movieIndex = userMovieArr.findIndex( movie => +movie.id === +updateId)
+
+        const movieIndex = userMovieArr.findIndex( movie => movie.id === id)
         let movie = userMovieArr[ movieIndex ]
 
         userMovieArr[ movieIndex ] = {
@@ -36,20 +36,21 @@ module.exports={
             release_date: movie.release_date,
             note: note
         }
-        res.status(200).send ( userMovieArr[movieIndex].note )
+        res.status(200).send( userMovieArr )
     },
     delete: (req,res) =>{
-        const {id} = req.props
-        const movieIndex = userMovieArr.findIndex( movie => +movie.id === +id )
-        userMovieArr.splice( movieIndex, 1)
-        userMovieArr[ movieIndex ] = {
-            // id: movie.id,
-            // title: movie.title,
-            // overview: movie.overview,
-            // release_date: movie.release_date,
-            // note: ''           
-        }
-        res.status(200).send ( userMovieArr )
+        console.log(req.params)
+        const {id} = req.params
+        // console.log(id)
+        // const movieIndex = userMovieArr.findIndex( movie => movie.id === id )
+        let index = null
+        userMovieArr.forEach((movie,i) => {
+            if(movie.id === i){
+                index = i;
+            }
+        })
+        userMovieArr.splice( index, 1)
+        res.status(200).send( userMovieArr )
     }
 }
 

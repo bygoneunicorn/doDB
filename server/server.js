@@ -9,7 +9,7 @@ app.use( bodyParser.json() )
 
 app.get(`/api/usermovies`, c.read)
 app.post(`/api/usermovies`, c.create)
-app.put(`/api/usermovies/:id`, c.updateNote)
+app.put(`/api/usermovies`, c.updateNote)
 app.delete(`/api/usermovies/:id`, c.delete)
 
 

@@ -8,19 +8,13 @@ import SearchBar from './searchSection/SearchBar'
 
 
 class App extends Component {
-  // componentDidMount(){
-  //   axios.get(`https://api.themoviedb.org/3/movie/76341?api_key=${api_key}`)
-  // }
-  
   render() {
-
-    
-      
-    
     return (
       <div className="App">
         <Header />
+        <div className="background-texture">
         <SearchBar />
+        </div>
       </div>
     );
   }

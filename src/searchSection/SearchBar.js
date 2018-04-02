@@ -17,6 +17,7 @@ export default class SearchBar extends Component{
         this.filterSearch = this.filterSearch.bind( this )
         this.addToUser = this.addToUser.bind( this )
         this.handleInput = this.handleInput.bind( this )
+        this.changeThisUserMovieArr = this.changeThisUserMovieArr.bind( this )
     }
     filterSearch(){
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.state.api_key}&language=en-US&query=${this.state.input}&page=1&include_adult=false`).then((res) =>{
@@ -32,26 +33,40 @@ export default class SearchBar extends Component{
     }
     addToUser(e){
         axios.post('/api/usermovies', e).then(res =>{
-            this.state.userMovieArr.push(res.data)
+            // this.state.userMovieArr.push(res.data)
+            // let temp = this.state.moviesArr.slice()
+            // temp.push(res.data)
+            this.setState({
+                userMovieArr: res.data
+            })
         })
-        console.log(this.state.userMovieArr)
+    }
+    changeThisUserMovieArr(res){
+        this.setState({
+            userMovieArr: res
+        })
     }
 
 
     render(){
         let moviesSearchList = this.state.moviesArr.map((e,i) => {
             return(
-                <p key={e.id}><span className="searchArrayTitle">{e.title}</span> <span className="searchArrayRelease">{e.release_date}</span>
-                <button onClick = {() => this.addToUser(e)}>+</button>
+                <p className="searchMovieItems" key={i}>
+                <span className="searchArrayTitle">{e.title}         ---></span> 
+                <span className="searchArrayRelease">Release Date: {e.release_date}</span>
+                <button  className="addButton" onClick = {() => this.addToUser(e)}>+</button>
                 </p>
             )
         })
         return(
             <div>
-                <input placeholder="Search for Movies!" onChange = {(e) => this.handleInput(e.target.value)} />
+                <div className="searchList"><input placeholder="Search for Movies!" onChange = {(e) => this.handleInput(e.target.value)} />
                 <button onClick = {() => this.filterSearch()}>Search</button>
                 {moviesSearchList}
-                <MovieComponent userMovieArr={this.state.userMovieArr}/>
+                </div>
+
+                <MovieComponent userMovieArr={this.state.userMovieArr} changeThisUserMovieArr={this.changeThisUserMovieArr}/>
+
             </div>
         )
     }

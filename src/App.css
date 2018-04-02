@@ -1,18 +1,41 @@
 .App {
   text-align: center;
 }
-
-input{
-  height: 40px;
-  width: 300px;
-  border-radius: 20px 0 0 20px;
+.background-texture{
+  background-color: #7b9dc9;
+  background-image: url(./asfalt-dark.png);
+  height: 2200px;
+  width: 100%;
 }
-button{
-  height: 40px;
+.searchList{
+  width: 41%;
+  float: left;
+  margin: 0 2% 0 4%;
+  height: 2000px;
+  padding: 20px 0;
+}
+.searchList input{
+  width: 50%;
 }
 .searchArrayTitle{
   font-size: 16px;
+  width: 300px;
 }
 .searchArrayRelease{
-  font-size: 16px;
+  font-size: 12px;
+
+}
+.addButton{
+  float: right;
+}
+
+.searchMovieItems{
+  width: 100%;
+  text-align: left;
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: linear-gradient(to right, #7b9dc9,rgb(0, 101, 119));
+
 }

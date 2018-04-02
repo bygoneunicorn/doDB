@@ -1,13 +1,13 @@
 .App-header {
     height: 150px;
     background: red; /* For browsers that do not support gradients */
-    background: linear-gradient(to bottom right, rgb(21, 141, 211),rgb(94, 207, 1));  height: 100px;
+    background: linear-gradient(to bottom right, #7b9dc9,rgb(18, 0, 119));  height: 100px;
     padding: 30px;
     color: white;
   }
   
   .App-title {
-    font-size: 1.5em;
+    font-size: 3em;
   }
   
   .App-intro {
