@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './header/Header'
 import SearchBar from './searchSection/SearchBar'
+import Footer from './footer/Footer'
 
 // var api_key = "04e815387301602505c1d844776145df"
 
@@ -15,6 +16,7 @@ class App extends Component {
         <div className="background-texture">
         <SearchBar />
         </div>
+        <Footer  />
       </div>
     );
   }

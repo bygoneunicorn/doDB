@@ -61,7 +61,12 @@ export default class MovieComponent extends Component{
         })
             
         return(
-            <section><h2>Your Movie List</h2>{movieList}</section>
+            <section>
+                <h2>Your Movie List</h2>
+                <button onClick={this.props.refreshReadFn}>Click here to add 3 great Robin Williams Movies!</button>
+            <br/>
+            {movieList}
+            </section>
         )
     }
 }
